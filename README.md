@@ -94,6 +94,7 @@ This object has follwoing properties.
  * mobile
  * windows
  * linux
+ * mac
  * unknown
 
 
