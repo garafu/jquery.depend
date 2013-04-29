@@ -26,7 +26,7 @@
     */
     Version = function (version) {
         // Initialize properties.
-        this.original = version;
+        this.original = null;
         this.major = null;
         this.minor = null;
         this.build = null;
@@ -44,10 +44,11 @@
     Version.prototype.initialize = function (version) {
         var arr = version.split('.');
 
+        this.original = version;
         this.major = (arr && arr[0]) ? parseInt(arr[0], 10) : null;
         this.minor = (arr && arr[1]) ? parseInt(arr[1], 10) : null;
-        this.revision = (arr && arr[2]) ? parseInt(arr[2], 10) : null;
-        this.build = (arr && arr[3]) ? parseInt(arr[3], 10) : null;
+        this.build = (arr && arr[2]) ? parseInt(arr[2], 10) : null;
+        this.revision = (arr && arr[3]) ? parseInt(arr[3], 10) : null;
     };
 
     /**
@@ -91,25 +92,33 @@
     * @return   {boolean}   Whether the version is or less than the specified version.
     */
     Version.prototype.isOrLess = function (major, minor, build, revision) {
-        var res = false;
-
-        if (typeof major === 'number' && this.major <= major) {
-            res = true;
-        } else {
-            if (typeof minor === 'undefined' || (typeof minor === 'number' && this.minor <= minor)) {
-                res = true;
-            } else {
-                if (typeof build === 'undefined' || (typeof build === 'number' && this.build <= build)) {
-                    res = true;
-                } else {
-                    if (typeof revision === 'undfined' || (typeof revision === 'number' && this.revision <= revision)) {
-                        res = true;
+        if (typeof major === 'number' && this.major < major) {
+            return true;
+        } else if (this.major === major) {
+            if (typeof minor === 'number' && this.minor < minor) {
+                return true;
+            } else if (this.minor === minor) {
+                if (typeof build === 'number' && this.build < build) {
+                    return true;
+                } else if (this.build === build) {
+                    if (typeof revision === 'undefined' || (typeof revision === 'number' && this.revision <= revision)) {
+                        return true;
+                    } else {
+                        return false;
                     }
+                } else if (typeof build === 'undefined') {
+                    return true;
+                } else {
+                    return false;
                 }
+            } else if (typeof minor === 'undefined') {
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-
-        return res;
     };
 
     /**
@@ -122,25 +131,29 @@
     * @return   {boolean}   Whether the version is less than the specified version.
     */
     Version.prototype.isLessThan = function (major, minor, build, revision) {
-        var res = false;
-
         if (typeof major === 'number' && this.major < major) {
-            res = true;
-        } else {
-            if (typeof minor === 'undefined' || (typeof minor === 'number' && this.minor < minor)) {
-                res = true;
-            } else {
-                if (typeof build === 'undefined' || (typeof build === 'number' && this.build < build)) {
-                    res = true;
-                } else {
-                    if (typeof revision === 'undfined' || (typeof revision === 'number' && this.revision < revision)) {
-                        res = true;
+            return true;
+        } else if (this.major === major) {
+            if (typeof minor === 'number' && this.minor < minor) {
+                return true;
+            } else if (this.minor === minor) {
+                if (typeof build === 'number' && this.build < build) {
+                    return true;
+                } else if (this.build === build) {
+                    if (typeof revision === 'number' && this.revision < revision) {
+                        return true;
+                    } else {
+                        return false;
                     }
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-
-        return res;
     };
 
     /**
@@ -153,25 +166,33 @@
     * @return   {boolean}   Whether the version is or more than the specified version.
     */
     Version.prototype.isOrMore = function (major, minor, build, revision) {
-        var res = false;
-
-        if (typeof major === 'number' && this.major >= major) {
-            res = true;
-        } else {
-            if (typeof minor === 'undefined' || (typeof minor === 'number' && this.minor >= minor)) {
-                res = true;
-            } else {
-                if (typeof build === 'undefined' || (typeof build === 'number' && this.build >= build)) {
-                    res = true;
-                } else {
-                    if (typeof revision === 'undfined' || (typeof revision === 'number' && this.revision >= revision)) {
-                        res = true;
+        if (typeof major === 'number' && this.major > major) {
+            return true;
+        } else if (this.major === major) {
+            if (typeof minor === 'number' && this.minor > minor) {
+                return true;
+            } else if (this.minor === minor) {
+                if (typeof build === 'number' && this.build > build) {
+                    return true;
+                } else if (this.build === build) {
+                    if (typeof revision === 'undefined' || (typeof revision === 'number' && this.revision >= revision)) {
+                        return true;
+                    } else {
+                        return false;
                     }
+                } else if (typeof build === 'undefined') {
+                    return true;
+                } else {
+                    return false;
                 }
+            } else if (typeof minor === 'undefined') {
+                return true;
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-
-        return res;
     };
 
     /**
@@ -184,25 +205,29 @@
     * @return   {boolean}   Whether the version is more than the specified version.
     */
     Version.prototype.isMoreThan = function (major, minor, build, revision) {
-        var res = false;
-
         if (typeof major === 'number' && this.major > major) {
-            res = true;
-        } else {
-            if (typeof minor === 'undefined' || (typeof minor === 'number' && this.minor > minor)) {
-                res = true;
-            } else {
-                if (typeof build === 'undefined' || (typeof build === 'number' && this.build > build)) {
-                    res = true;
-                } else {
-                    if (typeof revision === 'undfined' || (typeof revision === 'number' && this.revision > revision)) {
-                        res = true;
+            return true;
+        } else if (this.major === major) {
+            if (typeof minor === 'number' && this.minor > minor) {
+                return true;
+            } else if (this.minor === minor) {
+                if (typeof build === 'number' && this.build > build) {
+                    return true;
+                } else if (this.build === build) {
+                    if (typeof revision === 'number' && this.revision > revision) {
+                        return true;
+                    } else {
+                        return false;
                     }
+                } else {
+                    return false;
                 }
+            } else {
+                return false;
             }
+        } else {
+            return false;
         }
-
-        return res;
     };
 
     // ----------------------------------------------------
