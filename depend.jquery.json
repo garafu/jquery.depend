@@ -8,11 +8,12 @@
         "detection",
         "html5",
         "mobile",
+        "tablet",
         "support"
     ],
     "version": "1.0.0",
     "author": {
-        "name": "akinari tsugo",
+        "name": "garafu",
         "url": "https://github.com/garafu"
     },
     "licenses": [
