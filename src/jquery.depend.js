@@ -7,8 +7,7 @@
 *
 * Copyright (c) 2013 akinari tsugo
 *
-* This script released under the MIT license.
-* please see MIT-LICENCE.txt.
+* This script released under the MIT license (MIT-LICENSE.txt).
 */
 (function (window, document, $, undefined) {
     var Version, BrowserInfo, PlatformInfo;

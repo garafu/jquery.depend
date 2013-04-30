@@ -100,5 +100,5 @@ This object has follwoing properties.
 
 License
 --------------------------
-jQuery.depend plugin released under the MIT license.
-See MIT-LICENSE.txt.
+jQuery.depend plugin released under the MIT license.  
+Please see MIT-LICENSE.txt for details.
