@@ -11,7 +11,7 @@
         "tablet",
         "support"
     ],
-    "version": "1.0.0",
+    "version": "1.0.1",
     "author": {
         "name": "garafu",
         "url": "https://github.com/garafu"
@@ -25,7 +25,7 @@
     "bugs": "https://github.com/garafu/jquery.depend/issues",
     "homepage": "https://github.com/garafu/jquery.depend",
     "docs": "https://github.com/garafu/jquery.depend/wiki",
-    "download": "https://github.com/garafu/jquery.depend",
+    "download": "https://github.com/garafu/jquery.depend/tags",
     "dependencies": {
         "jquery": ">=1.9.1"
     }
