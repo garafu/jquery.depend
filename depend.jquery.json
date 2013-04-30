@@ -1,5 +1,5 @@
 {
-    "name": "jquery.depend",
+    "name": "depend",
     "title": "Solution for the dependency problem",
     "description": "jQuery plugin for resolve of the dependency problem about client browser or/and client platform using userAgent string.",
     "keywords": [
