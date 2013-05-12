@@ -92,6 +92,12 @@ This object has follwoing properties.
 
  * tablet
  * mobile
+ * pc
+ * iphone
+ * ipod
+ * ipad
+ * android
+ * windowsphone
  * windows
  * linux
  * mac
