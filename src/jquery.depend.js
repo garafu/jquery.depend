@@ -349,37 +349,44 @@
     * @param    {string}    userAgent       UserAgent string.
     */
     PlatformInfo.prototype.initialize = function (userAgent) {
-        var platform = '';
-        var mobile = /iphone|ipod|ipad|android|phone|blackberry|symbian|mobile/;
+        var type = '';
+        var platform = ''
+        var result = null;
+        var mobile = /iphone|ipod|ipad|android|windows phone|blackberry|symbian|mobile/;
+        var pc = /windows|mac|linux/;
 
         // Normalize useragent string to lowercase.
         userAgent = userAgent.toLowerCase();
 
         // Detect platform type.
-        if (mobile.exec(userAgent)) {
+        result = mobile.exec(userAgent);
+        if (result) {
             if ((userAgent.indexOf('android') >= 0 && userAgent.indexOf('mobile') < 0) ||
-            (userAgent.indexOf('ipad') >= 0)) {
+                (userAgent.indexOf('ipad') >= 0)) {
                 // Android tablet, iPad
-                platform = 'tablet';
+                type = 'tablet';
             } else {
                 // Android phone, iPhone, iPod, Windows Phone, BlackBerry, Symbian
-                platform = 'mobile';
+                type = 'mobile';
             }
-        } else if (userAgent.indexOf('windows') >= 0) {
-            // Windows
-            platform = 'windows';
-        } else if (userAgent.indexOf('mac') >= 0) {
-            // Max OS
-            platform = 'mac';
-        } else if (userAgent.indexOf('linux') >= 0) {
-            // Linux
-            platform = 'linux';
+            platform = result[0].replace(' ','');
         } else {
-            platform = 'unknown';
+            result = pc.exec(userAgent);
+            if (result) {
+                // Desktop platforms.
+                type = 'pc';
+                platform = result[0];
+            } else {
+                // Unknown platforms.
+                type = 'unknown';
+                platform = 'unknown';
+            }
         }
 
         // Set properties. 
+        this.type = type;
         this.original = platform;
+        this[type] = true;
         this[platform] = true;
     };
 
@@ -389,8 +396,13 @@
     * @param    {string}    type    Platform type string.
     * @return   {boolean}   Whether the current platform is equal to the specified platform.
     */
-    PlatformInfo.prototype.is = function (type) {
-        return (typeof type === 'string') && (type.toLowerCase() === this.original);
+    PlatformInfo.prototype.is = function (name) {
+        if (typeof name === 'string') {
+            name = name.toLowerCase();
+            return ((name === this.original) || (name === this.type));
+        } else {
+            return false;
+        }
     };
 
     // ----------------------------------------------------

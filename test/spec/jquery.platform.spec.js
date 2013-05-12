@@ -21,6 +21,10 @@ describe('jquery.platform', function () {
                 expect($.platform.mobile).toBeTruthy();
             });
 
+            it('detect that platform is "iphone"', function () {
+                expect($.platform.iphone).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (iPod; CPU iPhone OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3"', function () {
@@ -35,6 +39,10 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "mobile".', function () {
                 expect($.platform.mobile).toBeTruthy();
+            });
+
+            it('detect that platform is "ipod"', function () {
+                expect($.platform.ipod).toBeTruthy();
             });
 
         });
@@ -53,6 +61,10 @@ describe('jquery.platform', function () {
                 expect($.platform.tablet).toBeTruthy();
             });
 
+            it('detect that platform is "ipad".', function () {
+                expect($.platform.ipad).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (Linux; U; Android 2.2.1; ja-jp; IS03 Build/S9090) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"', function () {
@@ -67,6 +79,10 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "mobile".', function () {
                 expect($.platform.mobile).toBeTruthy();
+            });
+
+            it('detect that platform is "android".', function () {
+                expect($.platform.android).toBeTruthy();
             });
 
         });
@@ -85,6 +101,10 @@ describe('jquery.platform', function () {
                 expect($.platform.mobile).toBeTruthy();
             });
 
+            it('detect that platform is "android".', function () {
+                expect($.platform.android).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (Linux; U; Android 3.2; ja-jp; Sony Tablet S Build/THMAS11000) AppleWebKit/534.13 (KHTML, like Gecko) Version/4.0 Safari/534.13"', function () {
@@ -99,6 +119,10 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "tablet".', function () {
                 expect($.platform.tablet).toBeTruthy();
+            });
+
+            it('detect that platform is "android".', function () {
+                expect($.platform.android).toBeTruthy();
             });
 
         });
@@ -117,6 +141,10 @@ describe('jquery.platform', function () {
                 expect($.platform.mobile).toBeTruthy();
             });
 
+            it('detect that platform is "windowsphone".', function () {
+                expect($.platform.windowsphone).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/4.0 (compatible; MSIE 6.0; Windows NT 5.2; .NET CLR 1.1.4322; .NET CLR 2.0.41115)"', function () {
@@ -127,6 +155,10 @@ describe('jquery.platform', function () {
             });
 
             afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
             });
 
             it('detect that platform is "windows".', function () {
@@ -145,6 +177,10 @@ describe('jquery.platform', function () {
             afterEach(function () {
             });
 
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
             });
@@ -159,6 +195,10 @@ describe('jquery.platform', function () {
             });
 
             afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
             });
 
             it('detect that platform is "windows".', function () {
@@ -177,6 +217,10 @@ describe('jquery.platform', function () {
             afterEach(function () {
             });
 
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
             });
@@ -191,6 +235,10 @@ describe('jquery.platform', function () {
             });
 
             afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
             });
 
             it('detect that platform is "windows".', function () {
@@ -209,6 +257,10 @@ describe('jquery.platform', function () {
             afterEach(function () {
             });
 
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
             });
@@ -223,6 +275,10 @@ describe('jquery.platform', function () {
             });
 
             afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
             });
 
             it('detect that platform is "mac".', function () {
@@ -241,6 +297,10 @@ describe('jquery.platform', function () {
             afterEach(function () {
             });
 
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
             });
@@ -255,6 +315,10 @@ describe('jquery.platform', function () {
             });
 
             afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
             });
 
             it('detect that platform is "linux".', function () {
