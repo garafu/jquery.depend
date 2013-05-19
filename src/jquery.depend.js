@@ -10,6 +10,7 @@
 * This script released under the MIT license (MIT-LICENSE.txt).
 */
 (function (window, document, $, undefined) {
+
     var Version, BrowserInfo, PlatformInfo;
 
     // ----------------------------------------------------
@@ -24,6 +25,7 @@
     * @param    {string}    version     Version string like "1.2.3.4".
     */
     Version = function (version) {
+
         // Initialize properties.
         this.original = null;
         this.major = null;
@@ -33,6 +35,7 @@
 
         // Initialize this instance.
         this.initialize(version);
+
     };
 
     /**
@@ -41,6 +44,7 @@
     * @param    {string}    String indicating version.
     */
     Version.prototype.initialize = function (version) {
+
         var arr = version.split('.');
 
         this.original = version;
@@ -48,6 +52,7 @@
         this.minor = (arr && arr[1]) ? parseInt(arr[1], 10) : null;
         this.build = (arr && arr[2]) ? parseInt(arr[2], 10) : null;
         this.revision = (arr && arr[3]) ? parseInt(arr[3], 10) : null;
+
     };
 
     /**
@@ -60,6 +65,7 @@
     * @return   {boolean}   Whether the version is equal to the specified version.
     */
     Version.prototype.isEqual = function (major, minor, build, revision) {
+
         var res = false;
 
         if (typeof major === 'number' && this.major === major) {
@@ -79,6 +85,7 @@
         }
 
         return res;
+
     };
 
     /**
@@ -91,6 +98,7 @@
     * @return   {boolean}   Whether the version is or less than the specified version.
     */
     Version.prototype.isOrLess = function (major, minor, build, revision) {
+
         if (typeof major === 'number' && this.major < major) {
             return true;
         } else if (this.major === major) {
@@ -118,6 +126,7 @@
         } else {
             return false;
         }
+
     };
 
     /**
@@ -130,6 +139,7 @@
     * @return   {boolean}   Whether the version is less than the specified version.
     */
     Version.prototype.isLessThan = function (major, minor, build, revision) {
+
         if (typeof major === 'number' && this.major < major) {
             return true;
         } else if (this.major === major) {
@@ -153,6 +163,7 @@
         } else {
             return false;
         }
+
     };
 
     /**
@@ -165,6 +176,7 @@
     * @return   {boolean}   Whether the version is or more than the specified version.
     */
     Version.prototype.isOrMore = function (major, minor, build, revision) {
+
         if (typeof major === 'number' && this.major > major) {
             return true;
         } else if (this.major === major) {
@@ -192,6 +204,7 @@
         } else {
             return false;
         }
+
     };
 
     /**
@@ -204,6 +217,7 @@
     * @return   {boolean}   Whether the version is more than the specified version.
     */
     Version.prototype.isMoreThan = function (major, minor, build, revision) {
+
         if (typeof major === 'number' && this.major > major) {
             return true;
         } else if (this.major === major) {
@@ -227,6 +241,7 @@
         } else {
             return false;
         }
+
     };
 
     // ----------------------------------------------------
@@ -240,12 +255,14 @@
     * @constructor
     */
     BrowserInfo = function () {
+
         //Initialize properties.
         this.original = '';
         this.version = null;
 
         // Initialize this instance.
         this.initialize(window.navigator.userAgent);
+
     };
 
     /**
@@ -254,6 +271,7 @@
     * @param    {string}    userAgent       UserAgent string.
     */
     BrowserInfo.prototype.initialize = function (userAgent) {
+
         var array;
         var browser = '', version = null;
 
@@ -262,57 +280,81 @@
 
         // Detect browser and browser version.
         if (userAgent.indexOf('opera') >= 0) {
+
             // Opera
             browser = 'opera';
 
             // Opera 9.00, Opera/9.0
             array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('msie') >= 0) {
+
             // Internet Explorer, Windows Phone, Sleipnir, Adobe Bridge
             browser = 'msie';
 
             // MSIE 9.0
             array = /msie ([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('firefox') >= 0) {
+
             // Firefox(not include Mozilla)
             browser = 'firefox';
 
             // Firefox/0.9.3
             array = /firefox\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('chrome') >= 0) {
+
             // Chrome, Android default this
             browser = 'chrome';
 
             // Chrome/6.0.472.55
             array = /chrome\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('android') >= 0) {
+
             // Android default browser
             browser = 'browser';
 
             // Version/4.0
             array = /version\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
+        } else if (userAgent.indexOf('silk') >= 0) {
+
+            // Silk
+            browser = 'silk';
+            
+            // Silk/2.4
+            array = /silk\/([\d\.]*)/.exec(userAgent);
+            version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('safari') >= 0) {
+
             // Safari
             browser = 'safari';
 
             // Version/3.0.3
             array = /version\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
+
         } else {
+
             // Other case
             browser = 'unknown';
             version = '';
+
         }
 
         // Set properties.
         this.original = browser;
         this[browser] = true;
         this.version = new Version(version);
+
     };
 
     /**
@@ -322,7 +364,9 @@
     * @return   {boolean}   Whether the current browser is equal to the specified browser.
     */
     BrowserInfo.prototype.is = function (type) {
+
         return (typeof type === 'string') && (type.toLowerCase() === this.original);
+
     };
 
     // ----------------------------------------------------
@@ -336,11 +380,13 @@
     * @constructor
     */
     PlatformInfo = function () {
+
         // Initialize properties.
         this.original = '';
 
         // Initialize this instance.
         this.initialize(window.navigator.userAgent);
+
     };
 
     /**
@@ -349,10 +395,11 @@
     * @param    {string}    userAgent       UserAgent string.
     */
     PlatformInfo.prototype.initialize = function (userAgent) {
+
         var type = '';
         var platform = ''
         var result = null;
-        var mobile = /iphone|ipod|ipad|android|windows phone|blackberry|symbian|mobile/;
+        var mobile = /iphone|ipod|ipad|android|windows phone|silk|blackberry|symbian|mobile/;
         var pc = /windows|mac|linux/;
 
         // Normalize useragent string to lowercase.
@@ -361,15 +408,21 @@
         // Detect platform type.
         result = mobile.exec(userAgent);
         if (result) {
-            if ((userAgent.indexOf('android') >= 0 && userAgent.indexOf('mobile') < 0) ||
-                (userAgent.indexOf('ipad') >= 0)) {
-                // Android tablet, iPad
+            if (userAgent.indexOf('silk') >= 0) {
+                // Silk
                 type = 'tablet';
+                platform = 'android';
             } else {
-                // Android phone, iPhone, iPod, Windows Phone, BlackBerry, Symbian
-                type = 'mobile';
+                if ((userAgent.indexOf('android') >= 0 && userAgent.indexOf('mobile') < 0) ||
+                    (userAgent.indexOf('ipad') >= 0)) {
+                    // Android tablet, iPad
+                    type = 'tablet';
+                } else {
+                    // Android phone, iPhone, iPod, Windows Phone, BlackBerry, Symbian
+                    type = 'mobile';
+                }
+                platform = result[0].replace(' ','');
             }
-            platform = result[0].replace(' ','');
         } else {
             result = pc.exec(userAgent);
             if (result) {
@@ -388,6 +441,7 @@
         this.original = platform;
         this[type] = true;
         this[platform] = true;
+
     };
 
     /**
@@ -397,12 +451,14 @@
     * @return   {boolean}   Whether the current platform is equal to the specified platform.
     */
     PlatformInfo.prototype.is = function (name) {
+
         if (typeof name === 'string') {
             name = name.toLowerCase();
             return ((name === this.original) || (name === this.type));
         } else {
             return false;
         }
+
     };
 
     // ----------------------------------------------------
@@ -431,6 +487,7 @@
     * @param    {object}    condition   Objects that includes condition of browser or platform dependency pattern.
     */
     $.depend = function () {
+
         var i, length, conditions, condition;
 
         conditions = arguments;
@@ -446,5 +503,7 @@
         if (console && console.log) {
             console.log('Not implemented default process in "$.depend" function.');
         }
+
     }
+
 })(window, document, jQuery);

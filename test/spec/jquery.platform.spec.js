@@ -127,6 +127,26 @@ describe('jquery.platform', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Linux; U; ja-jp; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.4 Safari/535.19 Silk-Accelerated=true"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Linux; U; ja-jp; KFTT Build/IML74K) AppleWebKit/535.19 (KHTML, like Gecko) Silk/2.4 Safari/535.19 Silk-Accelerated=true';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "tablet".', function () {
+                expect($.platform.tablet).toBeTruthy();
+            });
+
+            it('detect that platform is "android".', function () {
+                expect($.platform.android).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)"', function () {
 
             beforeEach(function () {

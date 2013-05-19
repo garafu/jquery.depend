@@ -81,6 +81,7 @@ This object has following properties.
  * chrome
  * browser
  * safari
+ * silk
  * unknown
 
 ### $.platform  
