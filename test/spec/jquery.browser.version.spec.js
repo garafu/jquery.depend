@@ -500,7 +500,7 @@ describe('jquery.browser.version', function () {
         });
 
     });
-    
+
     // ------------------------------------------
     // Describe "isOrMore" method.
     // ------------------------------------------
@@ -774,8 +774,9 @@ describe('jquery.browser.version', function () {
             });
 
         });
-
+        
     });
+
 });
 
 

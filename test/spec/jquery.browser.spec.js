@@ -345,6 +345,113 @@ describe('jquery.browser', function () {
         });
     });
 
+
+    // ------------------------------------------
+    // Describe "window.__BACKWARD_COMPATIBILITY_ENABLED" flag.
+    // ------------------------------------------
+    describe('"window.__BACKWARD_COMPATIBILITY_ENABLED" flag:', function () {
+
+        beforeEach(function () {
+            window.__BACKWARD_COMPATIBILITY_ENABLED = undefined;
+        });
+
+        afterEach(function () {
+        });
+
+        describe('when the flag is "true",', function () {
+
+            beforeEach(function () {
+                window.__BACKWARD_COMPATIBILITY_ENABLED = true;
+            });
+
+            afterEach(function () {
+            });
+
+            describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)",', function () {
+
+                beforeEach(function () {
+                    userAgent = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)';
+                    $.browser.initialize(userAgent);
+                });
+
+                afterEach(function () {
+                });
+
+                it('$.browser.version property is "9.0"', function () {
+                    expect($.browser.version).toBe('9.0');
+                });
+                
+                it('typeof $.browser.version property is "string"', function () {
+                    expect(typeof $.browser.version).toBe('string');
+                });
+
+            });
+
+        });
+
+        describe('when the flag is "false",', function () {
+
+            beforeEach(function () {
+                window.__BACKWARD_COMPATIBILITY_ENABLED = false;
+            });
+
+            afterEach(function () {
+            });
+
+            describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)",', function () {
+
+                beforeEach(function () {
+                    userAgent = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)';
+                    $.browser.initialize(userAgent);
+                });
+
+                afterEach(function () {
+                });
+
+                it('$.browser.version property is not "9.0".', function () {
+                    expect($.browser.version).not.toBe('9.0');
+                });
+
+                it('type of $.browser.version property is "object".', function () {
+                    expect(typeof $.browser.version).toBe('object');
+                });
+
+            });
+
+        });
+
+        describe('when the flag is "undefined",', function () {
+
+            beforeEach(function () {
+                window.__BACKWARD_COMPATIBILITY_ENABLED = undefined;
+            });
+
+            afterEach(function () {
+            });
+
+            describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)",', function () {
+
+                beforeEach(function () {
+                    userAgent = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows Phone OS 7.5; Trident/5.0; IEMobile/9.0; FujitsuToshibaMobileCommun; IS12T; KDDI)';
+                    $.browser.initialize(userAgent);
+                });
+
+                afterEach(function () {
+                });
+
+                it('$.browser.version property is not "9.0".', function () {
+                    expect($.browser.version).not.toBe('9.0');
+                });
+
+                it('type of $.browser.version property is "object".', function () {
+                    expect(typeof $.browser.version).toBe('object');
+                });
+
+            });
+
+        });
+
+    });
 });
 
 

@@ -4,9 +4,9 @@
 *   - Browser detection.
 *   - Platform detection.
 *   - Resolution of browser dependency problem.
-*
-* Copyright (c) 2013 akinari tsugo
-*
+*/
+/**
+* @license  Copyright (c) 2013 akinari tsugo
 * This script released under the MIT license (MIT-LICENSE.txt).
 */
 (function (window, document, $, undefined) {
@@ -73,13 +73,13 @@
                 if (typeof build === 'number' && this.build === build) {
                     if (typeof revision === 'number' && this.revision === revision) {
                         res = true;
-                    } else if (typeof revision === 'undefined') {
+                    } else if (revision === undefined) {
                         res = true;
                     }
-                } else if (typeof build === 'undefined') {
+                } else if (build === undefined) {
                     res = true;
                 }
-            } else if (typeof minor === 'undefined') {
+            } else if (minor === undefined) {
                 res = true;
             }
         }
@@ -108,17 +108,17 @@
                 if (typeof build === 'number' && this.build < build) {
                     return true;
                 } else if (this.build === build) {
-                    if (typeof revision === 'undefined' || (typeof revision === 'number' && this.revision <= revision)) {
+                    if (revision === undefined || (typeof revision === 'number' && this.revision <= revision)) {
                         return true;
                     } else {
                         return false;
                     }
-                } else if (typeof build === 'undefined') {
+                } else if (build === undefined) {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (typeof minor === 'undefined') {
+            } else if (minor === undefined) {
                 return true;
             } else {
                 return false;
@@ -186,17 +186,17 @@
                 if (typeof build === 'number' && this.build > build) {
                     return true;
                 } else if (this.build === build) {
-                    if (typeof revision === 'undefined' || (typeof revision === 'number' && this.revision >= revision)) {
+                    if (revision === undefined || (typeof revision === 'number' && this.revision >= revision)) {
                         return true;
                     } else {
                         return false;
                     }
-                } else if (typeof build === 'undefined') {
+                } else if (build === undefined) {
                     return true;
                 } else {
                     return false;
                 }
-            } else if (typeof minor === 'undefined') {
+            } else if (minor === undefined) {
                 return true;
             } else {
                 return false;
@@ -328,7 +328,7 @@
 
             // Silk
             browser = 'silk';
-            
+
             // Silk/2.4
             array = /silk\/([\d\.]*)/.exec(userAgent);
             version = (array) ? array[1] : '';
@@ -353,7 +353,7 @@
         // Set properties.
         this.original = browser;
         this[browser] = true;
-        this.version = new Version(version);
+        this.version = (!window.__BACKWARD_COMPATIBILITY_ENABLED) ? new Version(version) : version;
 
     };
 
@@ -397,7 +397,7 @@
     PlatformInfo.prototype.initialize = function (userAgent) {
 
         var type = '';
-        var platform = ''
+        var platform = '';
         var result = null;
         var mobile = /iphone|ipod|ipad|android|windows phone|silk|blackberry|symbian|mobile/;
         var pc = /windows|mac|linux/;
@@ -421,7 +421,7 @@
                     // Android phone, iPhone, iPod, Windows Phone, BlackBerry, Symbian
                     type = 'mobile';
                 }
-                platform = result[0].replace(' ','');
+                platform = result[0].replace(' ', '');
             }
         } else {
             result = pc.exec(userAgent);
@@ -500,10 +500,10 @@
             }
         }
 
-        if (console && console.log) {
-            console.log('Not implemented default process in "$.depend" function.');
+        if (window.console && window.console.log) {
+            window.console.log('Not implemented default process in "$.depend" function.');
         }
 
-    }
+    };
 
 })(window, document, jQuery);
