@@ -1,0 +1,41 @@
+﻿h1
+{
+    text-align: center;
+    line-height: 150px;
+}
+
+p
+{
+    line-height: 1.5em;
+}
+
+.body
+{
+    width: 720px;
+    margin: 0 auto;
+}
+
+.console
+{
+    border-radius: 5px;
+    border: 1px solid #e5e5e5;
+    padding: 2em 4em;
+    background-color: #f8f8f8;
+    line-height: 2em;
+}
+
+.message
+{
+    margin-bottom: 2em;
+}
+
+.key
+{
+    display: inline-block;
+    width: 10em;
+    font-weight: bold;
+}
+
+.value
+{
+}
