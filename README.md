@@ -104,6 +104,12 @@ This object has follwoing properties.
  * mac
  * unknown
 
+### window.__BACKWARD_COMPATIBILITY_ENABLED
+
+	window.__BACKWARD_COMPATIBILITY_ENABLED
+
+If this property is true, support backward compatibility.
+
 
 License
 --------------------------
