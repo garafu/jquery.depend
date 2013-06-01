@@ -27,6 +27,26 @@ describe('jquery.platform', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/26.0.1410.53 Mobile/10B350 Safari/8536.25"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/26.0.1410.53 Mobile/10B350 Safari/8536.25';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "mobile".', function () {
+                expect($.platform.mobile).toBeTruthy();
+            });
+
+            it('detect that platform is "iphone"', function () {
+                expect($.platform.iphone).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (iPod; CPU iPhone OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3"', function () {
 
             beforeEach(function () {
@@ -232,6 +252,26 @@ describe('jquery.platform', function () {
             beforeEach(function () {
                 userAgent = 'Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)';
                 $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)';
+                $.browser.initialize(userAgent);
             });
 
             afterEach(function () {

@@ -306,13 +306,13 @@
             array = /firefox\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
-        } else if (userAgent.indexOf('chrome') >= 0) {
+        } else if (userAgent.indexOf('chrome') >= 0 || userAgent.indexOf('crios') >= 0) {
 
             // Chrome, Android default this
             browser = 'chrome';
 
             // Chrome/6.0.472.55
-            array = /chrome\/([\d\.]+)/.exec(userAgent);
+            array = /[chrome|crios]\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
         } else if (userAgent.indexOf('android') >= 0) {

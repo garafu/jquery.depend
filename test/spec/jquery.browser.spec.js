@@ -27,6 +27,26 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/26.0.1410.53 Mobile/10B350 Safari/8536.25"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_1_4 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) CriOS/26.0.1410.53 Mobile/10B350 Safari/8536.25';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Chrome"', function () {
+                expect($.browser.chrome).toBeTruthy();
+            });
+
+            it('detect browser version is "26.0.1410.53"', function () {
+                expect($.browser.version.original).toBe('26.0.1410.53');
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (iPod; CPU iPhone OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3"', function () {
 
             beforeEach(function () {
@@ -223,6 +243,7 @@ describe('jquery.browser', function () {
             it('detect browser version is "8.0"', function () {
                 expect($.browser.version.original).toBe('8.0');
             });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"', function () {
@@ -242,6 +263,27 @@ describe('jquery.browser', function () {
             it('detect browser version is "9.0"', function () {
                 expect($.browser.version.original).toBe('9.0');
             });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "10.0"', function () {
+                expect($.browser.version.original).toBe('10.0');
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"', function () {
