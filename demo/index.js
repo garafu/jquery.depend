@@ -2,22 +2,26 @@
 
 $(window).ready(function () {
     var message = '';
-    
-    message = $.depend({
+
+    message += 'your browser is ';
+    message += $.depend({
         on: ($.browser.is('msie') && $.browser.version.isOrLess(8)),
         exe: function () {
-            return 'ie, and version is or less 8.';
+            return 'IE, and version is or less than 8.0.';
         }
     }, {
         on: ($.browser.is('msie') && $.browser.version.isMoreThan(8)),
         exe: function () {
-            return 'ie, and version is more than 8.';
+            return 'IE, and version is more than 8.0.';
         }
     }, {
         exe: function () {
-            return 'non ie browser.';
+            return 'not IE.';
         }
     });
-    
-    window.alert(message);
+
+    $('#message').html(message);
+    $('#browser').html($.browser.original);
+    $('#version').html($.browser.version.original);
+    $('#platform').html($.platform.original);
 });

@@ -1,1 +1,45 @@
-﻿
+﻿body, input, select, textarea, button
+{
+    font-family: Helvetica, Arial, freesans, clean, Sans-Serif;
+}
+
+h1
+{
+    text-align: center;
+    line-height: 150px;
+}
+
+p
+{
+    line-height: 1.5em;
+}
+
+.body
+{
+    width: 720px;
+    margin: 0 auto;
+}
+
+.console
+{
+    border: 1px solid silver;
+    padding: 2em 4em;
+    background-color: #efefef;
+    line-height: 2em;
+}
+
+.message
+{
+    margin-bottom: 2em;
+}
+
+.key
+{
+    display: inline-block;
+    width: 10em;
+    font-weight: bold;
+}
+
+.value
+{
+}

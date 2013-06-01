@@ -1,4 +1,4 @@
-﻿<!DOCTYPE>
+﻿<!DOCTYPE html>
 
 <html>
 <head>
@@ -6,13 +6,36 @@
     <script type="text/javascript" src="../lib/jquery/jquery-1.9.1.js"></script>
     <script type="text/javascript" src="../src/jquery.depend.js"></script>
     <script type="text/javascript" src="./index.js"></script>
-    <link type="text/css" href="index.css" />
+    <link type="text/css" rel="stylesheet" href="index.css" />
 </head>
 <body>
 
+<a href="https://github.com/garafu/jquery.depend"><img style="position: absolute; top: 0; left: 0; border: 0;" src="https://s3.amazonaws.com/github/ribbons/forkme_left_red_aa0000.png" alt="Fork me on GitHub"></a>
 
-<div id="log"></div>
+<div class="body">
+    <h1>jQuery.depend</h1>
+    <p>
+    jQuery plugin.
+    This plugin detect client browser type, browser version, platform type.
+    </p>
 
+    <h2>DEMO</h2>
+    <div id="console" class="console">
+        <div id="message" class="message"></div>
+        <div class="browsertype">
+            <span class="key">Browser Type :</span>
+            <span id="browser" class="value"></span>
+        </div>
+        <div class="browserversion">
+            <span class="key">Browser Version :</span>
+            <span id="version" class="value"></span>
+        </div>
+        <div class="platform">
+            <span class="key">Platform Type:</span>
+            <span id="platform" class="value"></span>
+        </div>
+    </div>
+</div>
 
 </body>
 </html>
