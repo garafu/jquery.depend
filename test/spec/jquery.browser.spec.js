@@ -47,6 +47,46 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mercury/7.4.2 Mobile/10A523 Safari/8536.25"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (iPhone; CPU iPhone OS 6_0_1 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Mercury/7.4.2 Mobile/10A523 Safari/8536.25';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Mercury"', function () {
+                expect($.browser.mercury).toBeTruthy();
+            });
+
+            it('detect browser version is "7.4.2"', function () {
+                expect($.browser.version.original).toBe('7.4.2');
+            });
+
+        });
+
+        describe('when userAgent is "Opera/9.80 (iPhone; Opera Mini/7.0.5/29.3709; U; ja) Presto/2.8.119 Version/11.10n/11.10"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Opera/9.80 (iPhone; Opera Mini/7.0.5/29.3709; U; ja) Presto/2.8.119 Version/11.10n/11.10';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Opera Mini"', function () {
+                expect($.browser.operamini).toBeTruthy();
+            });
+
+            it('detect browser version is "7.0.5"', function () {
+                expect($.browser.version.original).toBe('7.0.5');
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (iPod; CPU iPhone OS 5_0_1 like Mac OS X) AppleWebKit/534.46 (KHTML, like Gecko) Version/5.1 Mobile/9A405 Safari/7534.48.3"', function () {
 
             beforeEach(function () {
