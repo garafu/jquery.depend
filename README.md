@@ -19,6 +19,8 @@ Usage
 
 'jquery.depend' plugin provide resolution of browser dependency problem, browser detection, and platform detection. The following sample code is part of this plugin features.
 
+Please see the [wiki](https://github.com/garafu/jquery.depend/wiki) or [API Documentation/wiki](https://github.com/garafu/jquery.depend/wiki/API-Documentation) for detail.
+
 ### Browser detection
 
 This is a sample code of detecting browser type. This sample code (property) has boolean value according to client browser.
@@ -58,18 +60,12 @@ Example:
 
 ### Backward compatibility
 
-Support backward compatibility for the version that is older thanjQuery 1.9.
+Support backward compatibility for the version that is older than jQuery 1.9.
 If the following property is true, support backward compatibility.
 
 Example:
 
     window.__BACKWARD_COMPATIBILITY_ENABLED
-
-
-API documentation
---------------------------
-
-Please see the [API Documentation/wiki](https://github.com/garafu/jquery.depend/wiki/API-Documentation) for detail.
 
 
 License
