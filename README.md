@@ -1,13 +1,17 @@
 jQuery plugin : jquery.depend
 ==========================
 
-A jQuery plugin. This plugin provides following features. 
+A jQuery plugin provides following features. 
 
- * browser detection.
- * platform detection.
- * resolution of browser dependency.
+ * browser detection.(msie, firefox, chrome, opera, safari...)
+ * browser version detection.
+ * platform detection.(pc, mobile, tablet...)
+ * resolution of client browser dependency.
+ * support backward contribution.(older version than jQuery 1.9)
 
 This plugin use 'window.navigator.userAgent' string, when detect user's browser and platform.
+
+Try out [DEMO](http://garafu.github.io/jquery.depend/demo/index.html).
 
 
 Usage
@@ -18,6 +22,7 @@ Usage
 ### Browser detection
 
 This is a sample code of detecting browser type. This sample code (property) has boolean value according to client browser.
+This plugin detects IE, Firefox, Chrome, Opera, Android Default Browser, Safari, Silk, Mercury, Opera Mini.
 
 Example:
 
@@ -26,6 +31,7 @@ Example:
 ### Platform detection
 
 This is a sample code of detecting platform type. This sample code (property) has boolean value according to client platform.
+This plugin detects pc(windows, linux, mac), mobile(iPhone, Android Phone, Windows Phone, BlackBerry, Symbian), tablet(iPad, Andoroid Tablet, Kindle Fire).
 
 Example:
 
@@ -50,68 +56,23 @@ Example:
     // This "alert" show message according to browser and browser version.
     window.alert(message);
 
+### Backward compatibility
+
+Support backward compatibility for the version that is older thanjQuery 1.9.
+If the following property is true, support backward compatibility.
+
+Example:
+
+    window.__BACKWARD_COMPATIBILITY_ENABLED
+
 
 API documentation
 --------------------------
 
-### $.depend  
-
-    $.depend(condition1, condition2, ...)
-
-'condition' object should have following properties.
-
-**on**  
-Type: boolean  
-A condition of executing specified function.  
-
-**exe**  
-Type : function  
-A function that is called when the DOM element has been clicked.  
-
-### $.browser
-
-    $.browser
-
-The '$.browser' object includes user's browser information.
-This object has following properties.
-
- * opera
- * msie
- * firefox
- * chrome
- * browser
- * safari
- * silk
- * unknown
-
-### $.platform  
-
-    $.platform
-
-The '$.platform' object includes user's platform information.
-This object has follwoing properties.
-
- * tablet
- * mobile
- * pc
- * iphone
- * ipod
- * ipad
- * android
- * windowsphone
- * windows
- * linux
- * mac
- * unknown
-
-### window.__BACKWARD_COMPATIBILITY_ENABLED
-
-	window.__BACKWARD_COMPATIBILITY_ENABLED
-
-If this property is true, support backward compatibility.
+Please see the [API Documentation/wiki](https://github.com/garafu/jquery.depend/wiki/API-Documentation) for detail.
 
 
 License
 --------------------------
 jQuery.depend plugin released under the MIT license.  
-Please see MIT-LICENSE.txt for details.
+Please see [MIT-LICENSE.tx](https://github.com/garafu/jquery.depend/blob/master/MIT-LICENSE.txt)t for details.
