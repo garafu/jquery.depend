@@ -281,12 +281,25 @@
         // Detect browser and browser version.
         if (userAgent.indexOf('opera') >= 0) {
 
-            // Opera
-            browser = 'opera';
+            if (userAgent.indexOf('opera mini') < 0) {
 
-            // Opera 9.00, Opera/9.0
-            array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
-            version = (array) ? array[1] : '';
+                // Opera
+                browser = 'opera';
+
+                // Opera 9.00, Opera/9.0
+                array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
+                version = (array) ? array[1] : '';
+
+            } else {
+
+                // Opera Mini
+                browser = 'operamini';
+                
+                // Opera Mini/7.0.5
+                array = /opera mini\/([\d\.]+)/.exec(userAgent);
+                version = (array) ? array[1] : '';
+
+            }
 
         } else if (userAgent.indexOf('msie') >= 0) {
 
@@ -306,13 +319,13 @@
             array = /firefox\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
-        } else if (userAgent.indexOf('chrome') >= 0) {
+        } else if (userAgent.indexOf('chrome') >= 0 || userAgent.indexOf('crios') >= 0) {
 
             // Chrome, Android default this
             browser = 'chrome';
 
             // Chrome/6.0.472.55
-            array = /chrome\/([\d\.]+)/.exec(userAgent);
+            array = /[chrome|crios]\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
         } else if (userAgent.indexOf('android') >= 0) {
@@ -331,6 +344,15 @@
 
             // Silk/2.4
             array = /silk\/([\d\.]*)/.exec(userAgent);
+            version = (array) ? array[1] : '';
+
+        } else if (userAgent.indexOf('mercury') >= 0) {
+
+            // Safari
+            browser = 'mercury';
+
+            // Mercury/7.4.2
+            array = /mercury\/([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
         } else if (userAgent.indexOf('safari') >= 0) {
