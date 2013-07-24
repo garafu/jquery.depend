@@ -244,6 +244,16 @@
 
     };
 
+    /**
+    * Get the version string.
+    * @public
+    * @return   {string}    Version string.
+    */
+    Version.prototype.toString = function () {
+        return this.original;
+    };
+    
+
     // ----------------------------------------------------
     // BrowserInfo class.
     // ----------------------------------------------------
@@ -420,9 +430,12 @@
 
         var type = '';
         var platform = '';
+        var architecture  = '';
+        var version = '';
         var result = null;
         var mobile = /iphone|ipod|ipad|android|windows phone|silk|blackberry|symbian|mobile/;
         var pc = /windows|mac|linux/;
+        var array;
 
         // Normalize useragent string to lowercase.
         userAgent = userAgent.toLowerCase();
@@ -446,15 +459,39 @@
                 platform = result[0].replace(' ', '');
             }
         } else {
-            result = pc.exec(userAgent);
-            if (result) {
-                // Desktop platforms.
+            if (userAgent.indexOf('windows') >= 0) {
                 type = 'pc';
-                platform = result[0];
+                platform = 'windows';
+                
+                // Windows NT x.x
+                array = /windows nt ([\d\.]+)/.exec(userAgent);
+                version = (array) ? array[1] : '';
+                
+                // Architecture.
+                if (userAgent.indexOf('arm') >= 0) {
+                    architecture = 'arm';
+                } else if (userAgent.indexOf('win64') >= 0) {
+                    if (userAgent.indexOf('ia64') >= 0) {
+                        architecture = 'ia64';
+                    } else {
+                        architecture = 'x64';
+                    }
+                } else {
+                    architecture = 'x86';
+                }
+            } else if (userAgent.indexOf('mac') >= 0) {
+                type = 'pc';
+                platform = 'mac';
+                architecture = 'unknown';
+            } else if (userAgent.indexOf('linux') >= 0) {
+                type = 'pc';
+                platform = 'linux';
+                architecture = 'unknown';
             } else {
-                // Unknown platforms.
+                // Unknown platform.
                 type = 'unknown';
                 platform = 'unknown';
+                architecture = 'unknown';
             }
         }
 
@@ -463,6 +500,8 @@
         this.original = platform;
         this[type] = true;
         this[platform] = true;
+        this[architecture] = true;
+        this.version = new Version(version);
 
     };
 

@@ -245,6 +245,14 @@ describe('jquery.platform', function () {
                 expect($.platform.windows).toBeTruthy();
             });
 
+            it('detect that platform version is "5.2".', function () {
+                expect($.platform.version.toString()).toBe('5.2');
+            });
+
+            it('detect that platform is x86.', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/4.0 (compatible; MSIE 7.0; Windows NT 6.0; SLCC1; .NET CLR 2.0.50727; Media Center PC 5.0; .NET CLR 3.0.04506)"', function () {
@@ -263,6 +271,14 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.0"', function () {
+                expect($.platform.version.toString()).toBe('6.0');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
             });
 
         });
@@ -285,6 +301,14 @@ describe('jquery.platform', function () {
                 expect($.platform.windows).toBeTruthy();
             });
 
+            it('detect that platform version is "5.1"', function () {
+                expect($.platform.version.toString()).toBe('5.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 9.0; Windows NT 6.1; Trident/5.0)"', function () {
@@ -305,13 +329,21 @@ describe('jquery.platform', function () {
                 expect($.platform.windows).toBeTruthy();
             });
 
+            it('detect that platform version is "6.1"', function () {
+                expect($.platform.version.toString()).toBe('6.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
         });
 
         describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)"', function () {
 
             beforeEach(function () {
                 userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.1; Trident/6.0; SLCC2; .NET CLR 2.0.50727; .NET CLR 3.5.30729; .NET CLR 3.0.30729; Media Center PC 6.0; InfoPath.2; .NET4.0C; .NET4.0E; Tablet PC 2.0)';
-                $.browser.initialize(userAgent);
+                $.platform.initialize(userAgent);
             });
 
             afterEach(function () {
@@ -323,6 +355,126 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.1"', function () {
+                expect($.platform.version.toString()).toBe('6.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.2"', function () {
+                expect($.platform.version.toString()).toBe('6.2');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.2"', function () {
+                expect($.platform.version.toString()).toBe('6.2');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.2"', function () {
+                expect($.platform.version.toString()).toBe('6.2');
+            });
+
+            it('detect that platform is x64', function () {
+                expect($.platform.x64).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.2"', function () {
+                expect($.platform.version.toString()).toBe('6.2');
+            });
+
+            it('detect that platform is arm', function () {
+                expect($.platform.arm).toBeTruthy();
             });
 
         });
@@ -345,8 +497,68 @@ describe('jquery.platform', function () {
                 expect($.platform.windows).toBeTruthy();
             });
 
+            it('detect that platform version is "6.1"', function () {
+                expect($.platform.version.toString()).toBe('6.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.16 Safari/534.24"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.16 Safari/534.24';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.0"', function () {
+                expect($.platform.version.toString()).toBe('6.0');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.16 Safari/534.24"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.0; WOW64) AppleWebKit/534.24 (KHTML, like Gecko) Chrome/11.0.696.16 Safari/534.24';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.0"', function () {
+                expect($.platform.version.toString()).toBe('6.0');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
+            });
+        });
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0"', function () {
 
             beforeEach(function () {
@@ -363,6 +575,14 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.1"', function () {
+                expect($.platform.version.toString()).toBe('6.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
             });
 
         });
@@ -403,6 +623,14 @@ describe('jquery.platform', function () {
 
             it('detect that platform is "windows".', function () {
                 expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "5.1"', function () {
+                expect($.platform.version.toString()).toBe('5.1');
+            });
+
+            it('detect that platform is x86', function () {
+                expect($.platform.x86).toBeTruthy();
             });
 
         });

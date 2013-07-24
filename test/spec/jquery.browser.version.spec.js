@@ -178,7 +178,7 @@ describe('jquery.browser.version', function () {
     // ------------------------------------------
     // Describe "isEqual" method.
     // ------------------------------------------
-    describe('"isEqual(number[, number][, number][, number])" public method :', function () {
+    describe('"isEqual(number[, number[, number[, number]]])" public method :', function () {
 
         describe('when given version is "10.11.12.13",', function () {
 
@@ -228,7 +228,7 @@ describe('jquery.browser.version', function () {
     // ------------------------------------------
     // Describe "isOrLess" method.
     // ------------------------------------------
-    describe('"isOrLess(number[, number][, number][, number])" public method :', function () {
+    describe('"isOrLess(number[, number[, number[, number]]])" public method :', function () {
 
         describe('when given current version is "10.11.12.13",', function () {
 
@@ -366,7 +366,7 @@ describe('jquery.browser.version', function () {
     // ------------------------------------------
     // Describe "isLessThan" method.
     // ------------------------------------------
-    describe('"isLessThan(number[, number][, number][, number])" public method :', function () {
+    describe('"isLessThan(number[, number[, number[, number]]])" public method :', function () {
 
         describe('when given current version is "10.11.12.13",', function () {
 
@@ -504,7 +504,7 @@ describe('jquery.browser.version', function () {
     // ------------------------------------------
     // Describe "isOrMore" method.
     // ------------------------------------------
-    describe('"isOrMore(number[, number][, number][, number])" public method :', function () {
+    describe('"isOrMore(number[, number[, number[, number]]])" public method :', function () {
 
         describe('when given current version is "10.11.12.13",', function () {
 
@@ -642,7 +642,7 @@ describe('jquery.browser.version', function () {
     // ------------------------------------------
     // Describe "isMoreThan" method.
     // ------------------------------------------
-    describe('"isMoreThan(number[, number][, number][, number])" public method :', function () {
+    describe('"isMoreThan(number[, number[, number[, number]]])" public method :', function () {
 
         describe('when given current version is "10.11.12.13",', function () {
 
