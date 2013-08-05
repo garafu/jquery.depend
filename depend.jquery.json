@@ -1,7 +1,7 @@
 {
     "name": "depend",
     "title": "plugin for the dependency problem",
-    "description": "jQuery plugin for resolve of the dependency problem about client browser or/and client platform using userAgent string.",
+    "description": "jQuery plugin for resolve of the dependency problem about client browser or/and client platform using userAgent string. This plugin provides the browser detection, browser version detectioin, platform detection.",
     "keywords": [
         "browser",
         "platform",
@@ -11,7 +11,7 @@
         "tablet",
         "support"
     ],
-    "version": "1.1.2",
+    "version": "1.1.3",
     "author": {
         "name": "garafu",
         "url": "http://garafu.github.io/"
