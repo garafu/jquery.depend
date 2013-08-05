@@ -283,7 +283,9 @@
     BrowserInfo.prototype.initialize = function (userAgent) {
 
         var array;
-        var browser = '', version = null;
+        var browser = ''
+        var architecture = ''
+        var version = null;
 
         // Normalize useragent string to lowercase.
         userAgent = userAgent.toLowerCase();
@@ -382,9 +384,23 @@
 
         }
 
+        // Architecture.
+        if (userAgent.indexOf('arm') >= 0) {
+            architecture = 'arm';
+        } else if (userAgent.indexOf('win64') >= 0) {
+            if (userAgent.indexOf('ia64') >= 0) {
+                architecture = 'ia64';
+            } else {
+                architecture = 'x64';
+            }
+        } else {
+            architecture = 'x86';
+        }
+
         // Set properties.
         this.original = browser;
         this[browser] = true;
+        this[architecture] = true;
         this.version = (!window.__BACKWARD_COMPATIBILITY_ENABLED) ? new Version(version) : version;
 
     };
@@ -476,6 +492,8 @@
                     } else {
                         architecture = 'x64';
                     }
+                } else if (userAgent.indexOf('wow64') >= 0) {
+                    architecture = 'x64';
                 } else {
                     architecture = 'x86';
                 }

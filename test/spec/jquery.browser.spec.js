@@ -326,6 +326,102 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Trident/6.0)';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "10.0"', function () {
+                expect($.browser.version.original).toBe('10.0');
+            });
+
+            it('detect browser executing architecture is x86', function () {
+                expect($.browser.x86).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; WOW64; Trident/6.0)';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "10.0"', function () {
+                expect($.browser.version.original).toBe('10.0');
+            });
+
+            it('detect browser executing architecture is x86', function () {
+                expect($.browser.x86).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; Win64; x64; Trident/6.0)';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "10.0"', function () {
+                expect($.browser.version.original).toBe('10.0');
+            });
+
+            it('detect browser executing architecture is x64', function () {
+                expect($.browser.x64).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (compatible; MSIE 10.0; Windows NT 6.2; ARM; Trident/6.0)';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "10.0"', function () {
+                expect($.browser.version.original).toBe('10.0');
+            });
+
+            it('detect browser executing architecture is ARM', function () {
+                expect($.browser.arm).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"', function () {
 
             beforeEach(function () {

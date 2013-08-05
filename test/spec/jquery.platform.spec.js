@@ -417,8 +417,8 @@ describe('jquery.platform', function () {
                 expect($.platform.version.toString()).toBe('6.2');
             });
 
-            it('detect that platform is x86', function () {
-                expect($.platform.x86).toBeTruthy();
+            it('detect that platform is x64', function () {
+                expect($.platform.x64).toBeTruthy();
             });
 
         });
@@ -528,8 +528,8 @@ describe('jquery.platform', function () {
                 expect($.platform.version.toString()).toBe('6.0');
             });
 
-            it('detect that platform is x86', function () {
-                expect($.platform.x86).toBeTruthy();
+            it('detect that platform is x64', function () {
+                expect($.platform.x64).toBeTruthy();
             });
         });
 
@@ -555,8 +555,8 @@ describe('jquery.platform', function () {
                 expect($.platform.version.toString()).toBe('6.0');
             });
 
-            it('detect that platform is x86', function () {
-                expect($.platform.x86).toBeTruthy();
+            it('detect that platform is x64', function () {
+                expect($.platform.x64).toBeTruthy();
             });
         });
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0"', function () {
