@@ -422,6 +422,30 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; Trident/7.0; rv 11.0) like Gecko';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Internet Explorer"', function () {
+                expect($.browser.msie).toBeTruthy();
+            });
+
+            it('detect browser version is "11.0"', function () {
+                expect($.browser.version.original).toBe('11.0');
+            });
+
+            it('detect browser executing architecture is x86', function () {
+                expect($.browser.x86).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"', function () {
 
             beforeEach(function () {

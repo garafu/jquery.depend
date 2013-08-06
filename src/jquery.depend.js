@@ -313,13 +313,13 @@
 
             }
 
-        } else if (userAgent.indexOf('msie') >= 0) {
+        } else if (userAgent.indexOf('msie') >= 0 || userAgent.indexOf('trident') >= 0) {
 
             // Internet Explorer, Windows Phone, Sleipnir, Adobe Bridge
             browser = 'msie';
 
-            // MSIE 9.0
-            array = /msie ([\d\.]+)/.exec(userAgent);
+            // MSIE 9.0, rv 11.0
+            array = /[msie|rv] ([\d\.]+)/.exec(userAgent);
             version = (array) ? array[1] : '';
 
         } else if (userAgent.indexOf('firefox') >= 0) {
