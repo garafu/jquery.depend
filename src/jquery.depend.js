@@ -583,6 +583,7 @@
             window.console.log('Not implemented default process in "$.depend" function.');
         }
 
+        return undefined;
     };
 
 })(window, document, jQuery);
