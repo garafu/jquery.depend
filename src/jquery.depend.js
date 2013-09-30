@@ -283,8 +283,8 @@
     BrowserInfo.prototype.initialize = function (userAgent) {
 
         var array;
-        var browser = ''
-        var architecture = ''
+        var browser = '';
+        var architecture = '';
         var version = null;
 
         // Normalize useragent string to lowercase.
