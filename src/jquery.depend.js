@@ -252,7 +252,7 @@
     Version.prototype.toString = function () {
         return this.original;
     };
-    
+
 
     // ----------------------------------------------------
     // BrowserInfo class.
@@ -284,6 +284,7 @@
 
         var array;
         var browser = '';
+        var engine = '';
         var architecture = '';
         var version = null;
 
@@ -306,7 +307,7 @@
 
                 // Opera Mini
                 browser = 'operamini';
-                
+
                 // Opera Mini/7.0.5
                 array = /opera mini\/([\d\.]+)/.exec(userAgent);
                 version = (array) ? array[1] : '';
@@ -384,6 +385,21 @@
 
         }
 
+        // Rendering engine
+        if (userAgent.indexOf('webkit') >= 0) {
+            engine = 'webkit';
+        } else  if (userAgent.indexOf('trident') >= 0) {
+            engine = 'trident';
+        } else if (userAgent.indexOf('presto') >= 0) {
+            engine = 'presto';
+        } else if (userAgent.indexOf('khtml') >= 0) {
+            engine = 'khtml';
+        } else if (userAgent.indexOf('gecko') >= 0) {
+            engine = 'gecko';
+        } else {
+            engine = 'unknown';
+        }
+
         // Architecture.
         if (userAgent.indexOf('arm') >= 0) {
             architecture = 'arm';
@@ -400,6 +416,7 @@
         // Set properties.
         this.original = browser;
         this[browser] = true;
+        this[engine] = true;
         this[architecture] = true;
         this.version = (!window.__BACKWARD_COMPATIBILITY_ENABLED) ? new Version(version) : version;
 
@@ -446,7 +463,7 @@
 
         var type = '';
         var platform = '';
-        var architecture  = '';
+        var architecture = '';
         var version = '';
         var result = null;
         var mobile = /iphone|ipod|ipad|android|windows phone|silk|blackberry|symbian|mobile/;
@@ -478,11 +495,11 @@
             if (userAgent.indexOf('windows') >= 0) {
                 type = 'pc';
                 platform = 'windows';
-                
+
                 // Windows NT x.x
                 array = /windows nt ([\d\.]+)/.exec(userAgent);
                 version = (array) ? array[1] : '';
-                
+
                 // Architecture.
                 if (userAgent.indexOf('arm') >= 0) {
                     architecture = 'arm';
