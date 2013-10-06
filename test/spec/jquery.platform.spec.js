@@ -127,6 +127,26 @@ describe('jquery.platform', function () {
 
         });
 
+        describe('when userAgent is "Opera/9.80 (Android 2.1-update1; Linux; Opera Mobi/ADR-1104201100; U; en) Presto/2.7.81 Version/11.00"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Opera/9.80 (Android 2.1-update1; Linux; Opera Mobi/ADR-1104201100; U; en) Presto/2.7.81 Version/11.00';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "mobile".', function () {
+                expect($.platform.mobile).toBeTruthy();
+            });
+
+            it('detect that platform is "android".', function () {
+                expect($.platform.android).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Linux; U; Android 2.2.1; ja-jp; IS03 Build/S9090) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"', function () {
 
             beforeEach(function () {

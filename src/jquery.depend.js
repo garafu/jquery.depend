@@ -294,22 +294,31 @@
         // Detect browser and browser version.
         if (userAgent.indexOf('opera') >= 0) {
 
-            if (userAgent.indexOf('opera mini') < 0) {
-
-                // Opera
-                browser = 'opera';
-
-                // Opera 9.00, Opera/9.0
-                array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
-                version = (array) ? array[1] : '';
-
-            } else {
+            if (userAgent.indexOf('opera mini') >= 0) {
 
                 // Opera Mini
                 browser = 'operamini';
 
                 // Opera Mini/7.0.5
                 array = /opera mini\/([\d\.]+)/.exec(userAgent);
+                version = (array) ? array[1] : '';
+
+            } else if (userAgent.indexOf('opera mobi') >= 0) {
+
+                // Opera Mobile
+                browser = 'operamobile';
+
+                // Version/12.02
+                array = /version\/([\d\.]+)/.exec(userAgent);
+                version = (array) ? array[1] : '';
+
+            } else {
+
+                // Opera
+                browser = 'opera';
+
+                // Opera 9.00, Opera/9.0
+                array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
                 version = (array) ? array[1] : '';
 
             }

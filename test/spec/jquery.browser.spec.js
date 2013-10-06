@@ -151,6 +151,30 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Opera/9.80 (Android 2.1-update1; Linux; Opera Mobi/ADR-1104201100; U; en) Presto/2.7.81 Version/11.00"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Opera/9.80 (Android 2.1-update1; Linux; Opera Mobi/ADR-1104201100; U; en) Presto/2.7.81 Version/11.00';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Opera Mobile"', function () {
+                expect($.browser.operamobile).toBeTruthy();
+            });
+
+            it('detect browser version is "11.00"', function () {
+                expect($.browser.version.original).toBe('11.00');
+            });
+
+            it('detect rendering engin is "Presto".', function () {
+                expect($.browser.presto).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Linux; U; Android 2.2.1; ja-jp; IS03 Build/S9090) AppleWebKit/533.1 (KHTML, like Gecko) Version/4.0 Mobile Safari/533.1"', function () {
 
             beforeEach(function () {
