@@ -66,26 +66,20 @@
     */
     Version.prototype.isEqual = function (major, minor, build, revision) {
 
-        var res = false;
-
-        if (typeof major === 'number' && this.major === major) {
-            if (typeof minor === 'number' && this.minor === minor) {
-                if (typeof build === 'number' && this.build === build) {
-                    if (typeof revision === 'number' && this.revision === revision) {
-                        res = true;
-                    } else if (revision === undefined) {
-                        res = true;
-                    }
-                } else if (build === undefined) {
-                    res = true;
-                }
-            } else if (minor === undefined) {
-                res = true;
-            }
+        if (typeof major !== 'number') {
+            return false;
         }
-
-        return res;
-
+        if (typeof minor !== 'number') {
+            return (this.major === major);
+        }
+        if (typeof build !== 'number') {
+            return (this.major === major && this.minor === minor);
+        }
+        if (typeof revision !== 'number') {
+            return (this.major === major && this.minor === minor && this.build === build);
+        }
+        return (this.major === major && this.minor === minor &&
+                this.build === build && this.revision === revision);
     };
 
     /**
@@ -99,34 +93,35 @@
     */
     Version.prototype.isOrLess = function (major, minor, build, revision) {
 
-        if (typeof major === 'number' && this.major < major) {
-            return true;
-        } else if (this.major === major) {
-            if (typeof minor === 'number' && this.minor < minor) {
-                return true;
-            } else if (this.minor === minor) {
-                if (typeof build === 'number' && this.build < build) {
-                    return true;
-                } else if (this.build === build) {
-                    if (revision === undefined || (typeof revision === 'number' && this.revision <= revision)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else if (build === undefined) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if (minor === undefined) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
+        if (typeof major !== 'number') {
             return false;
         }
+        if (this.major !== major) {
+            return (this.major < major);
+        }
 
+        if (typeof minor !== 'number') {
+            return true;
+        }
+        if (this.minor !== minor) {
+            return (this.minor < minor);
+        }
+
+        if (typeof build !== 'number') {
+            return true;
+        }
+        if (this.build !== build) {
+            return (this.build < build);
+        }
+
+        if (typeof revision !== 'number') {
+            return true;
+        }
+        if (this.revision !== revision) {
+            return (this.revision < revision);
+        }
+
+        return true;
     };
 
     /**
@@ -140,30 +135,35 @@
     */
     Version.prototype.isLessThan = function (major, minor, build, revision) {
 
-        if (typeof major === 'number' && this.major < major) {
-            return true;
-        } else if (this.major === major) {
-            if (typeof minor === 'number' && this.minor < minor) {
-                return true;
-            } else if (this.minor === minor) {
-                if (typeof build === 'number' && this.build < build) {
-                    return true;
-                } else if (this.build === build) {
-                    if (typeof revision === 'number' && this.revision < revision) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
+        if (typeof major !== 'number') {
             return false;
         }
+        if (this.major !== major) {
+            return (this.major < major);
+        }
 
+        if (typeof minor !== 'number') {
+            return false;
+        }
+        if (this.minor !== minor) {
+            return (this.minor < minor);
+        }
+
+        if (typeof build !== 'number') {
+            return false;
+        }
+        if (this.build !== build) {
+            return (this.build < build);
+        }
+
+        if (typeof revision !== 'number') {
+            return false;
+        }
+        if (this.revision !== revision) {
+            return (this.revision < revision);
+        }
+
+        return false;
     };
 
     /**
@@ -177,34 +177,35 @@
     */
     Version.prototype.isOrMore = function (major, minor, build, revision) {
 
-        if (typeof major === 'number' && this.major > major) {
-            return true;
-        } else if (this.major === major) {
-            if (typeof minor === 'number' && this.minor > minor) {
-                return true;
-            } else if (this.minor === minor) {
-                if (typeof build === 'number' && this.build > build) {
-                    return true;
-                } else if (this.build === build) {
-                    if (revision === undefined || (typeof revision === 'number' && this.revision >= revision)) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else if (build === undefined) {
-                    return true;
-                } else {
-                    return false;
-                }
-            } else if (minor === undefined) {
-                return true;
-            } else {
-                return false;
-            }
-        } else {
+        if (typeof major !== 'number') {
             return false;
         }
+        if (this.major !== major) {
+            return (this.major > major);
+        }
 
+        if (typeof minor !== 'number') {
+            return true;
+        }
+        if (this.minor !== minor) {
+            return (this.minor > minor);
+        }
+
+        if (typeof build !== 'number') {
+            return true;
+        }
+        if (this.build !== build) {
+            return (this.build > build);
+        }
+
+        if (typeof revision !== 'number') {
+            return true;
+        }
+        if (this.revision !== revision) {
+            return (this.revision > revision);
+        }
+
+        return true;
     };
 
     /**
@@ -218,30 +219,35 @@
     */
     Version.prototype.isMoreThan = function (major, minor, build, revision) {
 
-        if (typeof major === 'number' && this.major > major) {
-            return true;
-        } else if (this.major === major) {
-            if (typeof minor === 'number' && this.minor > minor) {
-                return true;
-            } else if (this.minor === minor) {
-                if (typeof build === 'number' && this.build > build) {
-                    return true;
-                } else if (this.build === build) {
-                    if (typeof revision === 'number' && this.revision > revision) {
-                        return true;
-                    } else {
-                        return false;
-                    }
-                } else {
-                    return false;
-                }
-            } else {
-                return false;
-            }
-        } else {
+        if (typeof major !== 'number') {
             return false;
         }
+        if (this.major !== major) {
+            return (this.major > major);
+        }
 
+        if (typeof minor !== 'number') {
+            return false;
+        }
+        if (this.minor !== minor) {
+            return (this.minor > minor);
+        }
+
+        if (typeof build !== 'number') {
+            return false;
+        }
+        if (this.build !== build) {
+            return (this.build > build);
+        }
+
+        if (typeof revision !== 'number') {
+            return false;
+        }
+        if (this.revision !== revision) {
+            return (this.revision > revision);
+        }
+
+        return false;
     };
 
     /**
