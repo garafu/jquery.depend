@@ -329,8 +329,8 @@
             browser = 'msie';
 
             // MSIE 9.0, rv 11.0
-            array = /(msie|rv:?)\s?([\d\.]+)/.exec(userAgent);
-            version = (array) ? array[2] : '';
+            array = /[msie|rv] ([\d\.]+)/.exec(userAgent);
+            version = (array) ? array[1] : '';
 
         } else if (userAgent.indexOf('firefox') >= 0) {
 
