@@ -11,7 +11,6 @@ p
 
 .body
 {
-    width: 720px;
     margin: 0 auto;
 }
 
@@ -19,9 +18,9 @@ p
 {
     border-radius: 5px;
     border: 1px solid #e5e5e5;
-    padding: 2em 4em;
     background-color: #f8f8f8;
     line-height: 2em;
+    padding: 1em 2em;
 }
 
 .message
@@ -39,3 +38,19 @@ p
 .value
 {
 }
+
+@media screen and (min-width: 0px) and (max-device-width: 320px) {
+}
+@media screen and (min-width: 321px) and (max-device-width: 920px) {
+    .body
+    {
+        min-width: 320px;
+    }
+}
+@media screen and (min-width: 921px) {
+    .body
+    {
+        width: 720px;
+    }
+}
+
