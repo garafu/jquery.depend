@@ -627,6 +627,34 @@ describe('jquery.platform', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36 OPR/29.0.1795.47"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36 OPR/29.0.1795.47';
+                $.platform.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect that platform is "pc".', function () {
+                expect($.platform.pc).toBeTruthy();
+            });
+
+            it('detect that platform is "windows".', function () {
+                expect($.platform.windows).toBeTruthy();
+            });
+
+            it('detect that platform version is "6.3"', function () {
+                expect($.platform.version.toString()).toBe('6.3');
+            });
+
+            it('detect that platform is x64', function () {
+                expect($.platform.x64).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Opera/9.62 (Windows NT 5.1; U; ja) Presto/2.1.1"', function () {
 
             beforeEach(function () {

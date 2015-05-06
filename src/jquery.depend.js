@@ -298,7 +298,7 @@
         userAgent = userAgent.toLowerCase();
 
         // Detect browser and browser version.
-        if (userAgent.indexOf('opera') >= 0) {
+        if (userAgent.indexOf('opera') >= 0 || userAgent.lastIndexOf('opr') >= 0) {
 
             if (userAgent.indexOf('opera mini') >= 0) {
 
@@ -324,7 +324,7 @@
                 browser = 'opera';
 
                 // Opera 9.00, Opera/9.0
-                array = /opera[\s\/]+([\d\.]+)/.exec(userAgent);
+                array = /(?:opera|opr)[\s\/]+([\d\.]+)/.exec(userAgent);
                 version = (array) ? array[1] : '';
 
             }

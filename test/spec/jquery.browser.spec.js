@@ -7,6 +7,15 @@ describe('jquery.browser', function () {
     describe('"initialize" private static method', function () {
         var userAgent, result;
 
+        beforeEach(function () {
+            var key;
+            for (key in $.browser) {
+                if (typeof ($.browser[key]) !== 'function') {
+                    delete $.browser[key];
+                }
+            }
+        });
+
         describe('when userAgent is "Mozilla/5.0 (iPhone; CPU iPhone OS 6_0 like Mac OS X) AppleWebKit/536.26 (KHTML, like Gecko) Version/6.0 Mobile/10A403 Safari/8536.25"', function () {
 
             beforeEach(function () {
@@ -289,8 +298,8 @@ describe('jquery.browser', function () {
                 expect($.browser.version.original).toBe('9.0');
             });
 
-            it('detect rendering engin is "webkit".', function () {
-                expect($.browser.webkit).toBeTruthy();
+            it('detect rendering engin is "trident".', function () {
+                expect($.browser.trident).toBeTruthy();
             });
 
         });
@@ -607,6 +616,30 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.135 Safari/537.36';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Chrome"', function () {
+                expect($.browser.chrome).toBeTruthy();
+            });
+
+            it('detect browser version is "42.0.2311.135"', function () {
+                expect($.browser.version.original).toBe('42.0.2311.135');
+            });
+
+            it('detect rendering engin is "webkit".', function () {
+                expect($.browser.webkit).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1; rv:18.0) Gecko/20100101 Firefox/18.0"', function () {
 
             beforeEach(function () {
@@ -623,6 +656,30 @@ describe('jquery.browser', function () {
 
             it('detect browser version is "18.0"', function () {
                 expect($.browser.version.original).toBe('18.0');
+            });
+
+            it('detect rendering engin is "Gecko".', function () {
+                expect($.browser.gecko).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; WOW64; rv:37.0) Gecko/20100101 Firefox/37.0';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Firefox"', function () {
+                expect($.browser.firefox).toBeTruthy();
+            });
+
+            it('detect browser version is "37.0"', function () {
+                expect($.browser.version.original).toBe('37.0');
             });
 
             it('detect rendering engin is "Gecko".', function () {
@@ -702,6 +759,35 @@ describe('jquery.browser', function () {
             });
 
         });
+
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36 OPR/29.0.1795.47"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 6.3; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/42.0.2311.90 Safari/537.36 OPR/29.0.1795.47';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Opera"', function () {
+                expect($.browser.opera).toBeTruthy();
+            });
+
+            it('detect browser version is "29.0.1795.47"', function () {
+                expect($.browser.version.original).toBe('29.0.1795.47');
+            });
+
+            it('detect rendering engin is "webkit".', function () {
+                expect($.browser.webkit).toBeTruthy();
+            });
+
+            it('detect browser executing architecture is x86', function () {
+                expect($.browser.x86).toBeTruthy();
+            });
+
+        });
+
     });
 
 
