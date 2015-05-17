@@ -323,10 +323,14 @@
                 // Opera
                 browser = 'opera';
 
-                // Opera 9.00, Opera/9.0
-                array = /(?:opera|opr)[\s\/]+([\d\.]+)/.exec(userAgent);
-                version = (array) ? array[1] : '';
-
+                // Opera 9.00, Opera/9.0, Version/11.50
+                array = /version\/([\d\.]+)/.exec(userAgent);
+                if (array) {
+                    version = array[1];
+                } else{
+                    array = /(?:opera|opr)[\s\/]+([\d\.]+)/.exec(userAgent);
+                    version = (array) ? array[1] : '';
+                }
             }
 
         } else if (userAgent.indexOf('edge') >= 0) {

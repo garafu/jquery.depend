@@ -619,7 +619,6 @@ describe('jquery.browser', function () {
             });
 
         });
-        });
 
         describe('when userAgent is "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0"', function () {
 
@@ -837,6 +836,54 @@ describe('jquery.browser', function () {
 
             it('detect rendering engin is "unknown".', function () {
                 expect($.browser.unknown).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Opera/9.80 (Windows NT 6.1; U; ja) Presto/2.9.168 Version/11.50"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Opera/9.80 (Windows NT 6.1; U; ja) Presto/2.9.168 Version/11.50';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Opera"', function () {
+                expect($.browser.opera).toBeTruthy();
+            });
+
+            it('detect browser version is "11.50"', function () {
+                expect($.browser.version.original).toBe('11.50');
+            });
+
+            it('detect rendering engin is "Presto".', function () {
+                expect($.browser.presto).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; ja) Presto/2.10.289 Version/12.00"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Opera/9.80 (Macintosh; Intel Mac OS X 10.6.8; U; ja) Presto/2.10.289 Version/12.00';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Opera"', function () {
+                expect($.browser.opera).toBeTruthy();
+            });
+
+            it('detect browser version is "12.00"', function () {
+                expect($.browser.version.original).toBe('12.00');
+            });
+
+            it('detect rendering engin is "Presto".', function () {
+                expect($.browser.presto).toBeTruthy();
             });
 
         });
