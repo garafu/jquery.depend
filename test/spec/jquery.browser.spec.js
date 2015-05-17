@@ -592,6 +592,87 @@ describe('jquery.browser', function () {
 
         });
 
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 10.0; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Edge"', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+            it('detect browser version is "12.0"', function () {
+                expect($.browser.version.original).toBe('12.0');
+            });
+
+            it('detect rendering engin is "Edge".', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+            it('detect browser executing architecture is x86', function () {
+                expect($.browser.x86).toBeTruthy();
+            });
+
+        });
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Safari/537.36 Edge/12.0';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Edge"', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+            it('detect browser version is "12.0"', function () {
+                expect($.browser.version.original).toBe('12.0');
+            });
+
+            it('detect rendering engin is "Edge".', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+            it('detect browser executing architecture is x64', function () {
+                expect($.browser.x64).toBeTruthy();
+            });
+
+        });
+
+        describe('when userAgent is "Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0"', function () {
+
+            beforeEach(function () {
+                userAgent = 'Mozilla/5.0 (Windows Phone 10.0; Android 4.2.1; DEVICE INFO) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/39.0.2171.71 Mobile Safari/537.36 Edge/12.0';
+                $.browser.initialize(userAgent);
+            });
+
+            afterEach(function () {
+            });
+
+            it('detect client browser is "Edge"', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+            it('detect browser version is "12.0"', function () {
+                expect($.browser.version.original).toBe('12.0');
+            });
+
+            it('detect rendering engin is "Edge".', function () {
+                expect($.browser.edge).toBeTruthy();
+            });
+
+        });
+
         describe('when userAgent is "Mozilla/5.0 (Windows NT 6.1) AppleWebKit/537.22 (KHTML, like Gecko) Chrome/25.0.1364.172 Safari/537.22"', function () {
 
             beforeEach(function () {

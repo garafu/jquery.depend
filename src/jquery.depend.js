@@ -329,6 +329,15 @@
 
             }
 
+        } else if (userAgent.indexOf('edge') >= 0) {
+
+            // Micrrosoft Edge, Windows Phone
+            browser = 'edge';
+
+            // Edge/12.0
+            array = /edge\/([\d\.]+)/.exec(userAgent);
+            version = (array) ? array[1] : '';
+
         } else if (userAgent.indexOf('msie') >= 0 || userAgent.indexOf('trident') >= 0) {
 
             // Internet Explorer, Windows Phone, Sleipnir, Adobe Bridge
@@ -401,7 +410,9 @@
         }
 
         // Rendering engine
-        if (userAgent.indexOf('webkit') >= 0) {
+        if (userAgent.indexOf('edge') >= 0) {
+            engine = 'edge';
+        } else if (userAgent.indexOf('webkit') >= 0) {
             engine = 'webkit';
         } else  if (userAgent.indexOf('trident') >= 0) {
             engine = 'trident';
