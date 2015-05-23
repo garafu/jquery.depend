@@ -21,11 +21,16 @@ p
     background-color: #f8f8f8;
     line-height: 2em;
     padding: 1em 2em;
+    margin: 20px 0;
 }
 
 .message
 {
     margin-bottom: 2em;
+}
+
+.useragent
+{
 }
 
 .key

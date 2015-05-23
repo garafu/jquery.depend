@@ -24,4 +24,6 @@ $(window).ready(function () {
     $('#browser').html($.browser.original);
     $('#version').html($.browser.version.original);
     $('#platform').html($.platform.type + ' ( ' + $.platform.original + ' )');
+
+    $('#ua').html(window.navigator.userAgent || '');
 });
