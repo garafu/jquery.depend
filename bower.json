@@ -1,11 +1,16 @@
 {
   "name": "jquery.depend",
   "version": "1.1.7",
-  "homepage": "https://github.com/SchoolKeep/jquery.depend",
+  "homepage": "http://garafu.github.io/jquery.depend/",
   "authors": ["Akinari Tsugo <garafo@gmail.com>"],
   "description": "A jQuery plugin for browser detection.",
   "main": "src/jquery.depend.js",
-  "keywords": ["browser", "jquery", "desktop", "detect"],
+  "keywords": [
+    "browser",
+    "jquery",
+    "desktop",
+    "detect"
+  ],
   "license": "MIT",
   "dependencies": {
       "jquery": ">= 1.5"
