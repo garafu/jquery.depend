@@ -1,13 +1,11 @@
 {
   "name": "jquery.depend",
-  "version": "1.1.6",
-  "description": "jQuery plugin for resolve of the dependency problem about client browser or/and client platform using userAgent string. This plugin provides the browser detection, browser version detectioin, browser rendering engine detection, platform detection.",
-  "main": "index.js",
+  "version": "1.1.7",
+  "description": "A jQuery plugin for browser detection. This plugin provides the browser detection, browser version detectioin, browser rendering engine detection, platform detection.",
+  "main": "src/jquery.depend.js",
   "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lib": "./lib",
+    "example": "./demo"
   },
   "repository": {
     "type": "git",
@@ -24,7 +22,7 @@
     "tablet",
     "support"
   ],
-  "author": "garafu",
+  "author": "Akinari Tsugo <garafo@gmail.com>",
   "license": "MIT",
   "bugs": "https://github.com/garafu/jquery.depend/issues",
   "homepage": "http://garafu.github.io/jquery.depend/"
