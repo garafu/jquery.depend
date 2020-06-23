@@ -333,14 +333,14 @@
                 }
             }
 
-        } else if (userAgent.indexOf('edge') >= 0) {
+        } else if (userAgent.indexOf('edge') >= 0 || userAgent.indexOf('edg') >= 0) {
 
             // Micrrosoft Edge, Windows Phone
             browser = 'edge';
 
             // Edge/12.0
-            array = /edge\/([\d\.]+)/.exec(userAgent);
-            version = (array) ? array[1] : '';
+            array = /(edge|edg)\/([\d\.]+)/.exec(userAgent);
+            version = (array) ? array[2] : '';
 
         } else if (userAgent.indexOf('msie') >= 0 || userAgent.indexOf('trident') >= 0) {
 
