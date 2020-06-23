@@ -3,6 +3,9 @@
   "version": "1.1.7",
   "description": "A jQuery plugin for browser detection. This plugin provides the browser detection, browser version detectioin, browser rendering engine detection, platform detection.",
   "main": "src/jquery.depend.js",
+  "scripts": {
+    "build": "gulp"
+  },
   "directories": {
     "lib": "./lib",
     "example": "./demo"
@@ -25,5 +28,9 @@
   "author": "Akinari Tsugo <garafo@gmail.com>",
   "license": "MIT",
   "bugs": "https://github.com/garafu/jquery.depend/issues",
-  "homepage": "http://garafu.github.io/jquery.depend/"
+  "homepage": "http://garafu.github.io/jquery.depend/",
+  "devDependencies": {
+    "google-closure-compiler": "^20200614.0.0",
+    "gulp": "^4.0.2"
+  }
 }

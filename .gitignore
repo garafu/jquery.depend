@@ -136,7 +136,6 @@ Desktop.ini
 # Packages
 *.egg
 *.egg-info
-dist
 build
 eggs
 parts
@@ -161,3 +160,8 @@ pip-log.txt
 
 # Mac crap
 .DS_Store
+
+#################
+## Visual Studio
+#################
+node_modules/
